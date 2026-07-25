@@ -2,7 +2,7 @@ function Navbar(){
  
 
  return(
-<nav class="grid grid-cols-3 items-center px-6 py-4 bg-white shadow-sm">
+<nav class="grid grid-cols-3 items-center px-6 py-4 bg-cream-100 shadow-sm">
 
  
   <div class="justify-self-start">
