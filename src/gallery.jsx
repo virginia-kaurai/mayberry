@@ -25,7 +25,7 @@ function Gallery(){
           
            
            </p>
-            <h1 className="text-gold text-2xl flex justify-center">
+            <h1 className="text-gold text-2xl flex justify-center p-10 m-8">
             Amelia & Rowan · June wedding
            </h1>
         </div>

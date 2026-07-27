@@ -3,7 +3,7 @@ import Homepage from './homepage.jsx';
 import Menu from './menu.jsx'
 import Ourstory from './ourstory.jsx';
 import Gallery from './gallery.jsx';
-
+import Contact from './contact.jsx';
 function App() {
   
 
@@ -16,6 +16,7 @@ function App() {
       <Menu/>
       <Ourstory/>
       <Gallery/>
+      <Contact/>
     </div>
     </>
    

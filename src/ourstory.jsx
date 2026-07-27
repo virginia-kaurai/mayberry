@@ -27,22 +27,8 @@ We source flour from a local mill, butter from a family dairy, <br></br>and berr
             
             
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div >
-                <p  className="w-10 border-r border-gold"> <h1>LOCAL</h1>
-                <h3>INGREDIENTS</h3></p>
-            </div>
-            <div>
-                <p className="w-10 border-r border-gold">
-                <h1>LOCAL</h1>
-                <h3>INGREDIENTS</h3></p>
-            </div>
-            <div>
-                <p className="w-10 border-r border-gold">
-                <h1>LOCAL</h1>
-                <h3>INGREDIENTS</h3></p>
-            </div>
-            </div>
+            
+            
         </div>
     </div>
 

@@ -14,13 +14,13 @@ function Navbar(){
   </div>
 
   
-  <div class="hidden md:flex justify-self-center items-center gap-8">
-    <a href="#home" class="text-charcoal hover:text-rose transition-colors font-monserat">Home</a>
-    <a href="#about" class="text-charcoal hover:text-rose transition-colors font-monserat">About</a>
-    <a href="#menu" class="text-charcoal hover:text-rose transition-colors font-monserat">Menu</a>
+  <div className="hidden md:flex justify-self-center items-center gap-8">
+    <a href="#home" className="text-charcoal hover:text-rose transition-colors font-monserat">Home</a>
+    <a href="#about" className="text-charcoal hover:text-rose transition-colors font-monserat">About</a>
+    <a href="#menu" className="text-charcoal hover:text-rose transition-colors font-monserat">Menu</a>
     
-    <a href="#gallery" class="text-charcoal hover:text-rose transition-colors font-monserat">Gallery</a>
-    <a href="#contact" class="text-charcoal hover:text-rose transition-colors font-monserat">Contact</a>
+    <a href="#gallery" className="text-charcoal hover:text-rose transition-colors font-monserat">Gallery</a>
+    <a href="#contact" className="text-charcoal hover:text-rose transition-colors font-monserat">Contact</a>
   </div>
 
   
