@@ -15,20 +15,20 @@ function Navbar(){
 
   
   <div class="hidden md:flex justify-self-center items-center gap-8">
-    <a href="#home" class="text-charcoal hover:text-rose transition-colors">Home</a>
-    <a href="#about" class="text-charcoal hover:text-rose transition-colors">About</a>
-    <a href="#menu" class="text-charcoal hover:text-rose transition-colors">Menu</a>
+    <a href="#home" class="text-charcoal hover:text-rose transition-colors font-monserat">Home</a>
+    <a href="#about" class="text-charcoal hover:text-rose transition-colors font-monserat">About</a>
+    <a href="#menu" class="text-charcoal hover:text-rose transition-colors font-monserat">Menu</a>
     
-    <a href="#gallery" class="text-charcoal hover:text-rose transition-colors">Gallery</a>
-    <a href="#contact" class="text-charcoal hover:text-rose transition-colors">Contact</a>
+    <a href="#gallery" class="text-charcoal hover:text-rose transition-colors font-monserat">Gallery</a>
+    <a href="#contact" class="text-charcoal hover:text-rose transition-colors font-monserat">Contact</a>
   </div>
 
   
   <div class="flex justify-self-end items-center gap-3">
-    <button class="text-charcoal font-medium px-4 py-2 hover:text-rose transition-colors">
+    <button class="text-charcoal font-medium px-4 py-2 hover:text-rose transition-colors font-monserat">
       Login
     </button>
-    <button class=" text-charcoal font-medium px-4 py-2 rounded-t-xl rounded-b-xl hover:border border-xl border-rose transition-colors">
+    <button class=" text-charcoal font-monserat font-medium px-4 py-2 rounded-t-xl rounded-b-xl hover:border border-xl border-rose transition-colors">
       Sign Up
     </button>
   </div>

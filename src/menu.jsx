@@ -38,6 +38,7 @@ function Menu() {
             <p className="mt-2 text-chocolate">
               Buttercream, seasonal florals, sculpted sugar leaves.
             </p>
+            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4">View Details</button>
           </div>
         </div>
 
@@ -61,6 +62,8 @@ function Menu() {
             <p className="mt-2 text-chocolate">
               Buttercream, seasonal florals, sculpted sugar leaves.
             </p>
+
+            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4">View Details</button>
           </div>
         </div>
 
@@ -84,6 +87,8 @@ function Menu() {
             <p className="mt-2 text-chocolate">
               Buttercream, seasonal florals, sculpted sugar leaves.
             </p>
+
+            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4">View Details</button>
           </div>
         </div>
 

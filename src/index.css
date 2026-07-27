@@ -1,3 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -7,4 +13,10 @@
   --color-rose: #AF5B66;
   --color-charcoal: #201B1D;
   --color-blush: #F4C2C2;
+  
+  --font-playfair: "Playfair Display", sans-serif;
+  --font-garamond: "Cormorant Garamond", sans-serif;
+  --font-monserat: "Montserrat", sans-serif;
+  --font-sans : "Google Sans", sans-serif;
+  --font-quick : "Quicksand", sans-serif;
 }
