@@ -11,7 +11,7 @@ function Navbar(){
 < div className="grid grid-cols-2 lg:grid-cols-3  items-center px-6 py-6 md:px-32 bg-cream  mb-8">
 
  
-  <header className=" flex  justify-center justify-self-start  ">
+  <nav className=" flex  justify-center justify-self-start  ">
     <img src={LOGO} className="w-16 h-16 sm:w-18sm:h-18 md:w-20 md:h-20 lg:w-24 lg:h-24   border-rose-300 rounded-full" >
     </img>
     <h1 className='text-lg sm:text-xl md:text-2xl font-semibold text-rose  p-4'>Mayberry Cakes</h1>
@@ -33,11 +33,11 @@ function Navbar(){
   
 
 
-  <div class="hidden md:flex justify-self-end items-center gap-4">
+  <div class="hidden lg:flex justify-self-end items-center gap-4 ">
     <button class="text-charcoal font-medium px-4 py-2 hover:text-rose transition-colors font-monserat">
       Login
     </button>
-    <button class=" text-charcoal font-monserat font-medium px-4 py-2 rounded-t-xl rounded-b-xl hover:border border-xl border-rose transition-colors">
+    <button class=" text-charcoal font-monserat font-medium px-4 py-2 rounded-t-full rounded-b-full hover:border border-xl border-rose transition-colors">
       Sign Up
     </button>
     
@@ -95,11 +95,11 @@ function Navbar(){
 
           <div className="flex flex-col gap-3 mt-8">
 
-            <button className="border border-rose rounded-full py-2">
+            <button className="border border-rose  px-8  m-3 text-xs uppercase tracking-[0.3em] text-charcoal rounded-full py-2 bg-white">
               Login
             </button>
 
-            <button className="bg-rose text-white rounded-full py-2">
+            <button className="bg-rose text-white  rounded-full px-8 py-6 m-3 text-xs uppercase tracking-[0.3em]">
               Sign Up
             </button>
 
@@ -108,7 +108,7 @@ function Navbar(){
         </div>
 
       )}
-  </header>
+  </nav>
 
   
   
