@@ -99,7 +99,7 @@ function Navbar(){
               Login
             </button>
 
-            <button className="bg-rose text-white  rounded-full px-8 py-6 m-3 text-xs uppercase tracking-[0.3em]">
+            <button className="bg-rose text-white  rounded-full py-2 m-3 text-xs uppercase tracking-[0.3em]">
               Sign Up
             </button>
 

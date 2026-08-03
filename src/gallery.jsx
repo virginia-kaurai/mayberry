@@ -1,3 +1,12 @@
+const galleryimages =[
+
+
+
+
+  
+]
+
+
 function Gallery(){
 
 
@@ -9,7 +18,7 @@ function Gallery(){
         <div className="w-10 border-t border-gold"></div>
 
         <p className="text-xs uppercase tracking-[0.4em] text-gold">
-          The Menu
+          Gallery
         </p>
 
         <div className="w-10 border-t border-gold"></div>
@@ -28,6 +37,19 @@ function Gallery(){
             <h1 className="text-gold text-2xl flex justify-center p-10 m-8">
             Amelia & Rowan · June wedding
            </h1>
+
+
+
+           {/* Gallery images */}
+           <div>
+
+                    <div>
+
+
+                    </div>
+
+
+           </div>
         </div>
         
         </>

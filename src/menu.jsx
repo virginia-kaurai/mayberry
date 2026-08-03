@@ -1,6 +1,15 @@
 import LOGO from "./assets/LOGO.jpeg";
+import IMAGE1 from "./assets/IMAGE1.jpeg";
+import IMAGE2 from "./assets/IMAGE2.jpeg";
+import IMAGE3 from "./assets/IMAGE3.jpeg";
+import { useState } from "react";
+import Modal from "./modal";
+
 
 function Menu() {
+
+
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="bg-cream min-h-screen py-10 m-10">
 
@@ -26,9 +35,9 @@ function Menu() {
         {/* Card 1 */}
         <div className="shadow-sm rounded-md">
           <img
-            src={LOGO}
+            src={IMAGE1}
             alt="Chocolate Cake"
-            className="w-full h-70 object-cover"
+            className="w-full h-70 object-cover rounded-md"
           />
 
           <div className="p-5">
@@ -43,16 +52,17 @@ function Menu() {
             <p className="mt-2 text-chocolate">
               Buttercream, seasonal florals, sculpted sugar leaves.
             </p>
-            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4">View Details</button>
+            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4" onClick={() => setIsOpen(true)}>Order Now</button>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}></Modal>
           </div>
         </div>
 
         {/* Card 2 */}
         <div className="shadow-sm bg-white rounded-md" >
           <img
-            src={LOGO}
+            src={IMAGE2}
             alt="Chocolate Cake"
-            className="w-full h-70 object-cover"
+            className="w-full h-70 object-cover rounded-md"
           />
 
           <div className="p-5">
@@ -68,16 +78,17 @@ function Menu() {
               Buttercream, seasonal florals, sculpted sugar leaves.
             </p>
 
-            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4">View Details</button>
+            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4" onClick={() => setIsOpen(true)}>Order Now</button>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}></Modal>
           </div>
         </div>
 
         {/* Card 3 */}
         <div className="shadow-sm bg-white rounded-md">
           <img
-            src={LOGO}
+            src={IMAGE3}
             alt="Chocolate Cake"
-            className="w-full h-70 object-cover"
+            className="w-full h-70 object-cover rounded-md"
           />
 
           <div className="p-5">
@@ -93,7 +104,8 @@ function Menu() {
               Buttercream, seasonal florals, sculpted sugar leaves.
             </p>
 
-            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4">View Details</button>
+            <button className=" text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold  p-4 mt-4" onClick={() => setIsOpen(true)}>Order Now</button>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}></Modal>
           </div>
         </div>
 
