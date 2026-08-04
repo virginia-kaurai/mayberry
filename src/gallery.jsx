@@ -45,8 +45,8 @@ function CreateCard({name, photo}){
 
     <div ClassName="flex flex-col items-center justify-center gap-4 p-10 m-10">
            
-            <img src={photo} className= " object-cover mt-8 "   alt="Cakes " />
-                <p className="text-lg font-bold text-center">{name}</p>
+            <img src={photo} className= " object-cover   rounded-md w-full h-70 mt-8  mb-8"   alt="Cakes " />
+                <p className="text-2xl font-bold font-dancing text-shadow-rose-500 text-center">{name}</p>
     </div>
   )
 }
@@ -57,7 +57,7 @@ function Gallery(){
     return(
 
         <>
-        <div className="flex items-center justify-center gap-4 mb-10 p-10">
+        <div className="flex items-center justify-center gap-4 mb-10 p-10 ">
         <div className="w-10 border-t border-gold"></div>
 
         <p className="text-xs uppercase tracking-[0.4em] text-gold">

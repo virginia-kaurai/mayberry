@@ -22,7 +22,7 @@ function Homepage() {
 
       <p className="font-quick text-charcoal text-2xl p-10"> 
         Handcrafted in small batches with seasonal fruit, French butter, and a lot of patience. Every cake is designed with you, for the moments worth remembering.
-        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+       .
       </p>
 
      <div className="grid grid-cols-2 gap-4">
