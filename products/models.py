@@ -41,4 +41,19 @@ class Size(models.Model):
     is_active = models.BooleanField(default=True) 
     serves    = models.IntegerField()    
 
+class cakes(models.Model):
+    name = models.CharField(max_length=20)
+    description = models.TextField(max_length=50) 
+    image = models.ImageField(upload_to="cakes/")
+    price = models.CharField(30)
+
+
+class flavours(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.TextField()
+    is_available = models.BooleanField(default=True)
+    
+
+
+
      
