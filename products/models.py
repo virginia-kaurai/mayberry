@@ -30,7 +30,7 @@ class ProductImage(models.Model):
 
     image = models.ImageField()
 
-class Flavour(models.Model):
+class flavour(models.Model):
     name= models.CharField(max_length=100)
     decription = models.TextField()
     is_active = models.BooleanField(default=True)
