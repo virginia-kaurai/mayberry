@@ -4,6 +4,8 @@ import Menu from './menu.jsx'
 import Ourstory from './ourstory.jsx';
 import Gallery from './gallery.jsx';
 import Contact from './contact.jsx';
+import Marquee from './Scroll.jsx';
+import Adminpage from './Adminpage.jsx';
 function App() {
   
 
@@ -13,10 +15,13 @@ function App() {
     <div className='bg-cream'>
       <Navbar />
       <Homepage/>
+      <Marquee/>
       <Menu/>
       <Ourstory/>
       <Gallery/>
       <Contact/>
+        <Adminpage/>
+    
     </div>
     </>
    
