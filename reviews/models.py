@@ -1,7 +1,13 @@
 from django.db import models
 
+from django.conf import settings
+
 class Reviews(models.Model):
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="orders"
+    )
     product = models.ForeignKey('products.Products', on_delete=models.CASCADE, related_name='reviews')
     rating = models.PositiveIntegerField()
     comment = models.TextField(blank=True, null=True)
