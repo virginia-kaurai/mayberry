@@ -63,3 +63,6 @@ class DeleteCake(generics.RetrieveDestroyAPIView):
      serializer_class = CakeSerializer
      queryset = cakes.objects.all()     
 
+class Flavourlist(generics.ListAPIView):
+     serializer_class= FlavourSerializer
+     queryset= flavour.objects.all()

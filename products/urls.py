@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AdminCakeDetail, CreateCake, DeleteCake ,EditCake ,EditFlavour,DeleteFlavour,AdminFlavourDetail,Createflavour
+from .views import AdminCakeDetail, CreateCake, DeleteCake ,EditCake ,EditFlavour,DeleteFlavour,AdminFlavourDetail,Createflavour,Flavourlist
 
 
 app_name = "products"
@@ -58,5 +58,11 @@ path(
     "admin/flavour/delete/<int:pk>/",
     DeleteFlavour.as_view(),
     name="deleteflavour"
+),
+
+path(
+    "flavours/",
+   Flavourlist.as_view(),
+    name="flavourlist"
 ),
 ]
