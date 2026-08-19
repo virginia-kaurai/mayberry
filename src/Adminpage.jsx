@@ -296,7 +296,7 @@ const Adminpage = () => {
           </div>
 
 
-          {/* Add Flavour */}
+       
 
           <div className="bg-white rounded-xl shadow-sm p-6 mt-8 max-w-xl">
 
@@ -341,20 +341,7 @@ const Adminpage = () => {
               </div>
 
 
-              {/* Image */}
-
-              <div className="mb-6">
-
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Flavour Image
-                </label>
-
-                <input
-                  type="file"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3"
-                />
-
-              </div>
+             
 
 
               <button

@@ -6,6 +6,7 @@ import Gallery from './gallery.jsx';
 import Contact from './contact.jsx';
 import Marquee from './Scroll.jsx';
 import Adminpage from './Adminpage.jsx';
+import Flavours from './flavours.jsx';
 function App() {
   
 
@@ -18,6 +19,7 @@ function App() {
       <Marquee/>
       <Menu/>
       <Ourstory/>
+      <Flavours/>
       <Gallery/>
       <Contact/>
         <Adminpage/>
