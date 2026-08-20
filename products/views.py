@@ -26,7 +26,7 @@ class Createflavour(generics.CreateAPIView):
 
 
 class AdminFlavourDetail(generics.RetrieveAPIView):
-     permission_classes = [IsAdminUser]
+     permission_classes = [IsAdminUserOrReadOnly]
      serializer_class = FlavourSerializer
      queryset = flavour.objects.all()
 
@@ -64,5 +64,6 @@ class DeleteCake(generics.RetrieveDestroyAPIView):
      queryset = cakes.objects.all()     
 
 class Flavourlist(generics.ListAPIView):
+     permission_classes = [IsAdminUserOrReadOnly]
      serializer_class= FlavourSerializer
      queryset= flavour.objects.all()
