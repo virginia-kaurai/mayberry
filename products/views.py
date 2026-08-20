@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from products.models import cakes ,flavour
+from products.models import cakes ,flavours
 from accounts.models import User
 from .serializers import CakeSerializer ,FlavourSerializer
 from rest_framework import generics
@@ -22,24 +22,24 @@ class IsAdminUserOrReadOnly(BasePermission):
 class Createflavour(generics.CreateAPIView):
     permission_classes = [IsAdminUser]
     serializer_class = FlavourSerializer
-    queryset = flavour.objects.all()
+    queryset = flavours.objects.all()
 
 
 class AdminFlavourDetail(generics.RetrieveAPIView):
      permission_classes = [IsAdminUserOrReadOnly]
      serializer_class = FlavourSerializer
-     queryset = flavour.objects.all()
+     queryset = flavours.objects.all()
 
 
 class EditFlavour(generics.UpdateAPIView):
      permission_classes = [IsAdminUser]
      serializer_class = FlavourSerializer
-     queryset = flavour.objects.all()
+     queryset = flavours.objects.all()
 
 class DeleteFlavour(generics.RetrieveDestroyAPIView):
      permission_classes = [IsAdminUser]
      serializer_class = FlavourSerializer
-     queryset = flavour.objects.all()     
+     queryset = flavours.objects.all()     
 
 class CreateCake(generics.CreateAPIView):
     permission_classes = [IsAdminUser]
@@ -66,4 +66,4 @@ class DeleteCake(generics.RetrieveDestroyAPIView):
 class Flavourlist(generics.ListAPIView):
      permission_classes = [IsAdminUserOrReadOnly]
      serializer_class= FlavourSerializer
-     queryset= flavour.objects.all()
+     queryset= flavours.objects.all()

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . models import cakes ,flavour 
+from . models import cakes ,flavours 
 
 class CakeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,5 +9,5 @@ class CakeSerializer(serializers.ModelSerializer):
 
 class FlavourSerializer(serializers.ModelSerializer):
     class Meta:
-        model=flavour
+        model=flavours
         fields =('__all__')        
