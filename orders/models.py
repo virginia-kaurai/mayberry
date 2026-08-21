@@ -6,7 +6,7 @@ class Order(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name="reviews"
+        related_name="orders"
     )
     order_number = models.CharField(max_length=20, unique=True)
     status_choices =[
