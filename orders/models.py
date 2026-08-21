@@ -15,18 +15,17 @@ class Order(models.Model):
 
     ]
     
-    cake_name = models.CharField(max_length=100, null=True, blank=True)
+    cakename = models.CharField(max_length=100, null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
-    special_instructions = models.TextField(blank=True)
-    delivery_date = models.DateField(null=True, blank=True)
-    delivery_time = models.TimeField(null=True, blank=True)
-    delivery_address = models.CharField(max_length=255, null=True, blank=True)
+    specialinstructions = models.TextField(blank=True)
+    deliverydate = models.DateField(null=True, blank=True)
+    deliverytime = models.TimeField(null=True, blank=True)
+    deliveryaddress = models.CharField(max_length=255, null=True, blank=True)
 
-    customer_email = models.EmailField(null=True, blank=True)
-    customer_name = models.CharField(max_length=255, null=True, blank=True)
-    customer_phone = models.CharField(max_length=20, null=True, blank=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
+    customeremail = models.EmailField(null=True, blank=True)
+    customername = models.CharField(max_length=255, null=True, blank=True)
+    customerphone = models.CharField(max_length=20, null=True, blank=True)
+    createdat = models.DateTimeField(auto_now_add=True)
     total = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
