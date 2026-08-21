@@ -1,3 +1,5 @@
+import wahu from "./assets/wahu.jpeg";
+
 function Ourstory(){
 return(
 
@@ -15,6 +17,7 @@ return(
 
         <div className="bg-rose-100  p-8">
                   <div className="flex  items-center justify-center">
+                 
              <h1 className="text-3xl  text-charcoal font-playfair">  
                     A little kitchen
 <span className="text-rose font-garamond"  >A lot of love.</span>

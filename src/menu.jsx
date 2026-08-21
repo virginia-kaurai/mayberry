@@ -36,17 +36,17 @@ function Menu() {
         <div className="shadow-sm rounded-md">
           <img
             src={IMAGE1}
-            alt="Chocolate Cake"
+            alt="white chocolate"
             className="w-full h-70 object-cover rounded-md"
           />
 
           <div className="p-5">
             <h1 className="text-xl font-semibold text-chocolate">
-              Chocolate Cake
+             white Chocolate Cake
             </h1>
 
             <h2 className="text-gold mt-2">
-              $30
+              2700
             </h2>
 
             <p className="mt-2 text-chocolate">
@@ -67,11 +67,11 @@ function Menu() {
 
           <div className="p-5">
             <h1 className="text-xl font-semibold text-chocolate">
-              Chocolate Cake
+              black chocolate
             </h1>
 
             <h2 className="text-gold mt-2">
-              $30
+              3500
             </h2>
 
             <p className="mt-2 text-chocolate">
@@ -93,11 +93,11 @@ function Menu() {
 
           <div className="p-5">
             <h1 className="text-xl font-semibold text-chocolate">
-              Chocolate Cake
+            vanilla cake
             </h1>
 
             <h2 className="text-gold mt-2">
-              $30
+              2000
             </h2>
 
             <p className="mt-2 text-chocolate">

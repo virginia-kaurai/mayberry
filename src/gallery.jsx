@@ -71,7 +71,7 @@ function Gallery(){
            <p className="font-quick p-10 m-10 flex justify-center items-center text-4xl">
 
 
-            “Our wedding cake was so beautiful guests didn’t want to cut it — and then so delicious we ran out in ten minutes. Mayberry made
+            “Our wedding cake was so beautiful guests didn’t want to cut it — and then so delicious we ran out in ten minutes. Mayberry made the day
            
 
           
