@@ -16,7 +16,7 @@ const Adminpage = () => {
 
   const fetchOrders =() =>{
 
-    fetch("")
+    fetch("http://127.0.0.1:8000/api2/orderslist/")
     .then(response => response.json())
     .then(data=>{console.log("api data:" ,data)
       setOrders(data);
@@ -249,15 +249,15 @@ const Adminpage = () => {
       </td>
 
       <td className="px-6 py-4">
-        {order.customer}
+        {order.customer_name}
       </td>
 
       <td className="px-6 py-4">
-        {order.cake}
+        {order.cake_name}
       </td>
 
       <td className="px-6 py-4">
-        {order.flavour}
+        {order.customer_phone}
       </td>
 
       <td className="px-6 py-4">
