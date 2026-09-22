@@ -13,6 +13,10 @@ const Adminpage = () => {
   const [loading, setLoading] = useState(false);
   const [orders,setOrders]= useState([]);
 
+ const [cakename, setCakename] = useState("");
+  const [cakeimage, setCakeimage] = useState("");
+  const [cakedescription, setCakedescription] = useState("");
+  const [cakeprice, setCakeprice] = useState("");
 
   const fetchOrders =() =>{
 
@@ -123,6 +127,56 @@ const Adminpage = () => {
   };
 
 
+  {/* this block of code created a container for the data and posts the cake data*/ }
+
+  const handlecakeSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check that all fields have been filled
+    if (!name || !description || !price || !image) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    setLoading(true);
+
+    // Create FormData
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("image", image);
+
+    try {
+        const response = await axios.post(
+            "http://127.0.0.1:8000/api/cakes/",
+            formData
+        );
+
+        console.log("Cake created:", response.data);
+
+        alert("Cake added successfully!");
+
+        // Clear the form
+        setName("");
+        setDescription("");
+        setPrice("");
+        setImage(null);
+
+    } catch (error) {
+        console.log(
+            "Error adding cake:",
+            error.response?.data || error.message
+        );
+
+        alert("Failed to add cake.");
+
+    } finally {
+        setLoading(false);
+    }
+};
+
   return (
 
     <div className="min-h-screen bg-gray-100">
@@ -167,6 +221,14 @@ const Adminpage = () => {
               className="py-4 text-gray-500 font-medium hover:text-pink-600"
             >
               Flavours
+            </a>
+
+
+            <a
+              href="#cakes"
+              className="py-4 text-pink-600 font-medium border-b-2 border-pink-600"
+            >
+              Cakes
             </a>
 
           </div>
@@ -462,6 +524,44 @@ const Adminpage = () => {
             </form>
 
           </div>
+
+        </section>
+
+        <section id="#cakes" >
+
+          <h1>Cakes</h1>
+
+          <form onSubmit={handlecakeSubmit } >
+            <label>cake image</label>
+            <input type="image"value={cakeimage}
+                  onChange={(e) =>
+                    setCakeimage(e.target.files[0])
+                  }
+            ></input>
+
+            <label className="text-3xl font-bold text-black">Cakename</label>
+            <input type="text" placeholder="e.g. Strawberry"
+                  value={cakename}
+                  onChange={(e) =>
+                    setCakename(e.target.value)
+                  }></input>
+
+            <label className="text-3xl font-bold text-black">price</label>
+            <input type="number" placeholder="e.g. 3400"
+                  value={cakeprice}
+                  onChange={(e) =>
+                    setCakeprice(e.target.value)
+                  }></input>
+
+              <label className="text-3xl font-bold text-black">description</label>
+              <input type="text" placeholder="e.g. a cake made with vanilla essense"
+                  value={cakedescription}
+                  onChange={(e) =>
+                    setCakedescription(e.target.value)
+                  }></input>
+          </form>
+
+
 
         </section>
 
