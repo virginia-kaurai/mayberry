@@ -143,10 +143,10 @@ const Adminpage = () => {
     // Create FormData
     const formData = new FormData();
 
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("price", price);
-    formData.append("image", image);
+    formData.append("name", cakename);
+    formData.append("description", cakedescription);
+    formData.append("price", cakeprice);
+    formData.append("image", cakeimage);
 
     try {
         const response = await axios.post(
@@ -531,34 +531,46 @@ const Adminpage = () => {
 
           <h1>Cakes</h1>
 
-          <form onSubmit={handlecakeSubmit } >
+          <form onSubmit={handlecakeSubmit } className="p-6 m-8">
             <label>cake image</label>
             <input type="image"value={cakeimage}
                   onChange={(e) =>
                     setCakeimage(e.target.files[0])
                   }
+
+
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-pink-500"
             ></input>
 
-            <label className="text-3xl font-bold text-black">Cakename</label>
+            <label className="text-3xl font-bold text-gray-400">Cakename</label>
             <input type="text" placeholder="e.g. Strawberry"
                   value={cakename}
                   onChange={(e) =>
                     setCakename(e.target.value)
-                  }></input>
+                  }
+                  
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-pink-500"
+                  ></input>
 
-            <label className="text-3xl font-bold text-black">price</label>
+            <label className="text-3xl font-bold text-gray-400">price</label>
             <input type="number" placeholder="e.g. 3400"
                   value={cakeprice}
                   onChange={(e) =>
                     setCakeprice(e.target.value)
-                  }></input>
+                  }
+                  
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-pink-500"
+                  ></input>
 
-              <label className="text-3xl font-bold text-black">description</label>
+              <label className="text-3xl font-bold text-gray-400">description</label>
               <input type="text" placeholder="e.g. a cake made with vanilla essense"
                   value={cakedescription}
                   onChange={(e) =>
                     setCakedescription(e.target.value)
-                  }></input>
+                  }
+                  
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-pink-500"
+                  ></input>
           </form>
 
 
