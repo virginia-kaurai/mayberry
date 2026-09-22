@@ -7,6 +7,8 @@ const Adminpage = () => {
 
   const [flavours, setFlavours] = useState([]);
 
+  const [cakes, setCakes] = useState([]);
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
@@ -17,6 +19,16 @@ const Adminpage = () => {
   const [cakeimage, setCakeimage] = useState("");
   const [cakedescription, setCakedescription] = useState("");
   const [cakeprice, setCakeprice] = useState("");
+
+
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+
+    setCakeimage(selectedImage);
+
+    console.log("Selected image:", selectedImage);
+};
 
   const fetchOrders =() =>{
 
@@ -155,6 +167,11 @@ const Adminpage = () => {
         );
 
         console.log("Cake created:", response.data);
+
+        setCakes((previousCakes) => [
+            ...previousCakes,
+            response.data
+        ]);
 
         alert("Cake added successfully!");
 
@@ -533,9 +550,9 @@ const Adminpage = () => {
 
           <form onSubmit={handlecakeSubmit } className="p-6 m-8">
             <label>cake image</label>
-            <input type="image"value={cakeimage}
-                  onChange={(e) =>
-                    setCakeimage(e.target.files[0])
+            <input type="file"
+    accept="image/*" 
+                  onChange={handleImageChange
                   }
 
 
@@ -571,10 +588,41 @@ const Adminpage = () => {
                   
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-pink-500"
                   ></input>
+
+                      <button type="Submit">Save cake</button>
           </form>
 
+          
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+        {cakes.map((cake) => (
 
+            <div key={cake.id}>
+
+                <img
+                    src={cake.image}
+                    alt={cake.name}
+                    className="w-full h-64 object-cover rounded-lg"
+                />
+
+                <h2>
+                    {cake.name}
+                </h2>
+
+                <p>
+                    {cake.description}
+                </p>
+
+                <p>
+                    KSh {cake.price}
+                </p>
+
+            </div>
+
+        ))}
+        
+      </div>
+  
         </section>
 
       </main>
