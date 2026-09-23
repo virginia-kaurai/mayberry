@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AdminCakeDetail, CreateCake, DeleteCake ,EditCake ,EditFlavour,DeleteFlavour,AdminFlavourDetail,Createflavour,Flavourlist
+from .views import AdminCakeDetail, CreateCake, DeleteCake ,EditCake ,EditFlavour,DeleteFlavour,AdminFlavourDetail,Flavours,Flavourlist
 
 
 app_name = "products"
@@ -43,8 +43,8 @@ urlpatterns = [
 ),
 
 path(
-    "admin/flavour/create/",
-    Createflavour.as_view(),
+    "/flavour/create/",
+    Flavours.as_view(),
     name="createflavour"
 ),
 

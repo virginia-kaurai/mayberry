@@ -5,7 +5,8 @@ from .serializers import CakeSerializer ,FlavourSerializer
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAdminUser, BasePermission,SAFE_METHODS
-
+from rest_framework.response import Response
+from rest_framework import status
 
 
 from rest_framework.permissions import BasePermission
@@ -19,10 +20,38 @@ class IsAdminUserOrReadOnly(BasePermission):
 
         return request.user.is_authenticated and request.user.is_staff
 
-class Createflavour(generics.CreateAPIView):
-    permission_classes = [IsAdminUser]
-    serializer_class = FlavourSerializer
-    queryset = flavours.objects.all()
+class Flavours(APIView):
+  
+    def get(self,request):
+        flavours = flavours.objects.all()
+        serializer = FlavourSerializer(flavours, many=True)
+        return Response(serializer.data)
+
+    
+    def post(self,request):
+        serializer = FlavourSerializer(data =request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self,request,pk):
+        flavours= flavours.objects.get(pk=pk)
+        serializer =FlavourSerializer(flavours, data= request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response( serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+
+
+
+    def delete(self,request,pk):
+        flavours= flavours.objects.get(pk=pk)
+        flavours.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    
 
 
 class AdminFlavourDetail(generics.RetrieveAPIView):
