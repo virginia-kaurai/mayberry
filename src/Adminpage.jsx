@@ -145,7 +145,7 @@ const Adminpage = () => {
     e.preventDefault();
 
     // Check that all fields have been filled
-    if (!name || !description || !price || !image) {
+    if (!cakename || !cakeprice || !cakedescription || !cakeimage) {
         alert("Please fill in all fields.");
         return;
     }
@@ -162,7 +162,7 @@ const Adminpage = () => {
 
     try {
         const response = await axios.post(
-            "http://127.0.0.1:8000/api/cakes/",
+            "http://127.0.0.1:8000/cakes/cakes/add/",
             formData
         );
 
@@ -176,10 +176,10 @@ const Adminpage = () => {
         alert("Cake added successfully!");
 
         // Clear the form
-        setName("");
-        setDescription("");
-        setPrice("");
-        setImage(null);
+setCakename("");
+setCakeprice("");
+setCakedescription("");
+setCakeimage(null);
 
     } catch (error) {
         console.log(
@@ -193,6 +193,39 @@ const Adminpage = () => {
         setLoading(false);
     }
 };
+
+
+{/* deleting a cake*/ }
+
+const deleteCake = async (id) => {
+  try {
+    await axios.delete(
+      `http://127.0.0.1:8000/cakes/cakes/delete/${id}`
+    );
+
+    // Remove the deleted cake from the screen
+    setCakes(cakes.filter((cake) => cake.id !== id));
+
+  } catch (error) {
+    console.error("Error deleting cake:", error);
+  }
+};
+
+
+const fetchCakes = async () => {
+  try {
+    const response = await axios.get(
+      "http://127.0.0.1:8000/cakes/cakeslist/"
+    );
+
+    setCakes(response.data);
+  } catch (error) {
+    console.error("Error fetching cakes:", error);
+  }
+};
+useEffect(() => {
+  fetchCakes();
+}, []);
 
   return (
 
@@ -600,7 +633,7 @@ const Adminpage = () => {
             <div key={cake.id}>
 
                 <img
-                    src={cake.image}
+                    src={`http://127.0.0.1:8000${cake.image}`}
                     alt={cake.name}
                     className="w-full h-64 object-cover rounded-lg"
                 />
@@ -616,6 +649,8 @@ const Adminpage = () => {
                 <p>
                     KSh {cake.price}
                 </p>
+
+                <button onClick={() => deleteCake(cake.id)}>Delete</button>
 
             </div>
 

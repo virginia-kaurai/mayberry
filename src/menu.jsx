@@ -8,7 +8,7 @@ function Menu() {
 
   // Fetch cakes from Django
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/cakes/")
+    fetch("http://127.0.0.1:8000/cakes/cakeslist/")
       .then((response) => response.json())
       .then((data) => {
         setCakes(data);
@@ -46,50 +46,49 @@ function Menu() {
       </div>
 
       {/* Cake cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        {cakes.map((cake) => (
-          <div key={cake.id} className="shadow-sm bg-white rounded-md">
+  {cakes.map((cake) => (
 
-            <img
-              src={cake.image}
-              alt={cake.name}
-              className="w-full h-70 object-cover rounded-md"
-            />
+    <div key={cake.id}>
 
-            <div className="p-5">
+      <img
+        src={`http://127.0.0.1:8000${cake.image}`}
+        alt={cake.name}
+        className="w-full h-64 object-cover rounded-lg"
+      />
 
-              <h1 className="text-xl font-semibold text-chocolate">
-                {cake.name}
-              </h1>
+      <h2>
+        {cake.name}
+      </h2>
 
-              <h2 className="text-gold mt-2">
-                KSh {cake.price}
-              </h2>
+      <p>
+        {cake.description}
+      </p>
 
-              <p className="mt-2 text-chocolate">
-                {cake.description}
-              </p>
+      <p>
+        KSh {cake.price}
+      </p>
 
-              <button
-                className="text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold p-4 mt-4"
-                onClick={() => setIsOpen(true)}
-              >
-                Order Now
-              </button>
+      <button
+        className="text-white rounded-full uppercase tracking-[0.3em] bg-rose hover:bg-gold p-4 mt-4"
+        onClick={() => setIsOpen(true)}
+      >
+        Order Now
+      </button>
 
-            </div>
-          </div>
-        ))}
+    </div>
 
-      </div>
+  ))}
+
+</div>
 
       <Modal
         open={isOpen}
         onClose={() => setIsOpen(false)}
       />
 
-    </div>
+   </div>
   );
 }
 
