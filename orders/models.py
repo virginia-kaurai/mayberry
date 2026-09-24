@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.conf import settings
 
@@ -8,6 +10,20 @@ class Order(models.Model):
         related_name="orders"
     )
     order_number = models.CharField(max_length=20, unique=True)
+
+    user = models.ForeignKey(
+    settings.AUTH_USER_MODEL,
+    on_delete=models.CASCADE,
+    related_name="orders",
+    null=True,
+    blank=True
+)
+    
+    def save(self, *args, **kwargs):
+        if not self.order_number:
+            self.order_number = f"ORD-{uuid.uuid4().hex[:8].upper()}"
+        super().save(*args, **kwargs)
+        
     status_choices =[
         ("P", "Pending"),
         ("C", "Completed"),

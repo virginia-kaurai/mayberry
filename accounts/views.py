@@ -73,17 +73,15 @@ class LogoutView(APIView):
         user = request.user
 
         if user.role == "STUDENT":
-            student_profile = user.student_profile
+            customer_profile = user.customer_profile
             data = {
                 "id": user.id,
-                "login_id": user.login_id,
+               
                 "first_name": user.first_name,
                 "last_name": user.last_name,
                 "email": user.email,
                 "role": user.role,
-                "programme": student_profile.programme.name,
-                "current_year": student_profile.current_year,
-                "admission_year": student_profile.admission_year
+               
             }
             return Response(data, status=status.HTTP_200_OK)
         elif user.role == "LECTURER":

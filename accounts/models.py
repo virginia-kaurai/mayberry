@@ -19,12 +19,12 @@ class User(AbstractUser):
     role = models.CharField(
         max_length=50,
         choices=ROLE_CHOICES,
-        default='student'
+        default='customer'
     )
     email = models.EmailField(unique=True)
-    
+    username=None
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name','last_name', 'username']
+    REQUIRED_FIELDS = ['first_name','last_name']
 
 
     def __str__(self):
