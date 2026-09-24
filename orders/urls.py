@@ -7,6 +7,6 @@ urlpatterns =[
 
 
 path("orderslist/", OrdersList.as_view(), name="orderslist"),
-path("orders/delete", DeleteOrders.as_view(), name="delete-orders")
+path("orders/delete/<int:pk>", DeleteOrders.as_view(), name="deleteorders")
 
 ]

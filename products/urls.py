@@ -43,7 +43,7 @@ urlpatterns = [
 ),
 
 path(
-    "/flavour/create/",
+    "flavours/create/",
     Flavours.as_view(),
     name="createflavour"
 ),
