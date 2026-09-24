@@ -139,6 +139,24 @@ const Adminpage = () => {
   };
 
 
+  //delete the flavours 
+
+const deleteflavour = async (id) =>{
+
+  try{
+    await axios.delete(`http://127.0.0.1:8000/api/flavour/delete/${id}/`
+
+    );
+
+    setFlavours(flavours.filter((flavour)=>flavour.id !==id));
+  }
+  catch(error){
+    console.error("error deleting flavour",error);
+  }
+};
+
+
+
   {/* this block of code created a container for the data and posts the cake data*/ }
 
   const handlecakeSubmit = async (e) => {
@@ -481,6 +499,9 @@ useEffect(() => {
 
 
                     <button
+                    onClick= {() => deleteflavour((flavour.id))
+    
+  }
                       type="button"
                       className="px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100"
                     >
