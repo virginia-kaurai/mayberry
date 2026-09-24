@@ -55,7 +55,7 @@ path(
 ),
 
 path(
-    "admin/flavour/delete/<int:pk>/",
+    "flavour/delete/<int:pk>/",
     DeleteFlavour.as_view(),
     name="deleteflavour"
 ),

@@ -46,13 +46,10 @@ class Flavours(APIView):
 
 
 
-    def delete(self,request,pk):
-        flavours= flavours.objects.get(pk=pk)
-        flavours.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-    
-
+def delete(self, request, pk):
+    flavour = flavours.objects.get(pk=pk)
+    flavour.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
 
 class AdminFlavourDetail(generics.RetrieveAPIView):
      permission_classes = [IsAdminUserOrReadOnly]
@@ -66,7 +63,7 @@ class EditFlavour(generics.UpdateAPIView):
      queryset = flavours.objects.all()
 
 class DeleteFlavour(generics.RetrieveDestroyAPIView):
-     permission_classes = [IsAdminUser]
+    
      serializer_class = FlavourSerializer
      queryset = flavours.objects.all()     
 
@@ -88,7 +85,7 @@ class EditCake(generics.UpdateAPIView):
      queryset = cakes.objects.all()
 
 class DeleteCake(generics.RetrieveDestroyAPIView):
-     permission_classes = [IsAdminUser]
+    
      serializer_class = CakeSerializer
      queryset = cakes.objects.all()     
 
