@@ -30,15 +30,27 @@ const handleSubmit  =(e)=>{
         cakename,quantity,specialinstructions,deliverydate,deliveryaddress,deliverytime,customername,customerphone,customeremail
     })
   })
-  .then((response)=>{
-     if(!response.ok){
-
+  .then((response) => {
+      if (!response.ok) {
         throw new Error("failed to create an order");
-     }
-     navigate("/")
+      }
+      return response.json();
+    })
+  .then(() => {
+      // Clear the form
+      setCakename("");
+      setQuantity("");
+      setSpecialinstructions("");
+      setDeliverydate("");
+      setDeliverytime("");
+      setDeliveryaddress("");
+      setCustomername("");
+      setCustomerphone("");
+      setCustomeremail("");
+     navigate("/");
   })
- .catch(error =>(console.log(error)))
-    }
+ .catch(error =>(console.log(error)),)
+    };
 
 return(
   
@@ -57,7 +69,7 @@ return(
         <label>Delivery Date</label>
         <input type="date" className="border border-rose-300 rounded-md p-2 mb-4 w-full" placeholder="YYYY-MM-DD" value={deliverydate} onChange={ (e)=>setDeliverydate(e.target.value)}/>
         <label>Delivery Time</label>
-        <input type="time" className="border border-rose-300 rounded-md p-2 mb-4 w-full" placeholder="HH:MM" value={deliveytime} onChange={ (e)=>setDeliverytime(e.target.value)}/>
+        <input type="time" className="border border-rose-300 rounded-md p-2 mb-4 w-full" placeholder="HH:MM" value={deliverytime} onChange={ (e)=>setDeliverytime(e.target.value)}/>
         <label>Delivery Address</label>
         <input type="text" className="border border-rose-300 rounded-md p-2 mb-4 w-full" placeholder="123 Main St" value={deliveryaddress} onChange={ (e)=>setDeliveryaddress(e.target.value)}/>
         <label>Customer Name</label>

@@ -98,7 +98,7 @@ const Adminpage = () => {
     try {
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/flavours/",
+        "http://127.0.0.1:8000/api/flavours/create/",
         {
           name: name,
           description: description
@@ -232,7 +232,7 @@ const deleteCake = async (id) => {
 
 
 //button for deleting orders on the admin panel
- const DeleteOrders = async(id) => {
+ const DeleteOrder = async(id) => {
   try{
     await axios.delete(`http://127.0.0.1:8000/api2/orders/delete/${id}`);
 
@@ -378,6 +378,10 @@ useEffect(() => {
                       Total
                     </th>
 
+                     <th className="px-6 py-4">
+                      Action
+                    </th>
+
                    
 
                   </tr>
@@ -385,7 +389,7 @@ useEffect(() => {
                 </thead>
 
 
-                <tbody>
+                
 
                   {/* Example order */}
             <tbody>
@@ -393,7 +397,7 @@ useEffect(() => {
     <tr key={order.id} className="">
 
       <td className="px-6 py-4 font-medium">
-        {order.ordernumber}
+        {order.order_number}
       </td>
 
       <td className="px-6 py-4">
@@ -414,14 +418,14 @@ useEffect(() => {
       <td className="px-6 py-4">
          {order.total}
       </td>
-
-      <button onClick={() => deleteOrder(order.id)}>Delete order</button>
-
+       <td>
+      <button onClick={() => DeleteOrder(order.id)}>Delete order</button>
+        </td>
     </tr>
   ))}
 </tbody>
 
-                </tbody>
+                
 
               </table>
 
