@@ -44,11 +44,11 @@ const Flavours = () => {
 
             <div className="p-5">
 
-              <h2 className="text-xl font-semibold">
+              <h2 className="text-lg font-semibold font-guide text-black">
                 {flavour.name}
               </h2>
 
-              <p className="text-gray-500 mt-2">
+              <p className="text-amber-400 mt-2 font-jura text-3xl">
                 {flavour.description}
               </p>
 

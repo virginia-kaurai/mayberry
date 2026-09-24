@@ -277,7 +277,7 @@ useEffect(() => {
             Mayberry Bakery
           </h1>
 
-          <p className="text-sm text-gray-500">
+          <p className="text-xl text-gray-500">
             Admin Panel
           </p>
 
@@ -419,7 +419,7 @@ useEffect(() => {
          {order.total}
       </td>
        <td>
-      <button onClick={() => DeleteOrder(order.id)}>Delete order</button>
+      <button onClick={() => DeleteOrder(order.id)} className="bg-pink-600  text-white px-2  rounded-lg hover:bg-pink-700 disabled:opacity-50 font-bold">Delete order</button>
         </td>
     </tr>
   ))}
@@ -672,7 +672,7 @@ useEffect(() => {
 
         {cakes.map((cake) => (
 
-            <div key={cake.id}>
+            <div key={cake.id} className="p-4 ">
 
                 <img
                     src={`http://127.0.0.1:8000${cake.image}`}
@@ -680,19 +680,19 @@ useEffect(() => {
                     className="w-full h-64 object-cover rounded-lg"
                 />
 
-                <h2>
+                <h2 className="text-gray-700 text-3xl p-4">
                     {cake.name}
                 </h2>
 
-                <p>
+                <p className="p-2">
                     {cake.description}
                 </p>
 
-                <p>
+                <p className="text-2xl text-gold">
                     KSh {cake.price}
                 </p>
 
-                <button onClick={() => deleteCake(cake.id)}>Delete</button>
+                <button onClick={() => deleteCake(cake.id)} className="bg-pink-500 p-2 text-white px-6 py-3 rounded-lg hover:bg-pink-700 disabled:opacity-50">Delete</button>
 
             </div>
 

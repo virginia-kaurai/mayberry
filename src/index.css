@@ -6,6 +6,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Playwrite+CA+Guides&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CA+Guides&display=swap');
+
 @import "tailwindcss";
 
 @theme {
@@ -24,4 +29,6 @@
   --font-quick : "Quicksand", sans-serif;
   --font-dancing : "Dancing Script", cursive;
   --font-jura : "Jura", sans-serif;
+  --font-guide:"Playwrite CA Guides", cursive;
+  
 }

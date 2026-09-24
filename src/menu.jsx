@@ -58,15 +58,15 @@ function Menu() {
         className="w-full h-64 object-cover rounded-lg"
       />
 
-      <h2>
+      <h2 className="text-3xl text-black font-playfair">
         {cake.name}
       </h2>
 
-      <p>
+      <p className="p-2 text-black">
         {cake.description}
       </p>
 
-      <p>
+      <p className="text-2xl font-bold text-amber-600">
         KSh {cake.price}
       </p>
 
