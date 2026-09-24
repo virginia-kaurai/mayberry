@@ -8,7 +8,7 @@ const Modal = ({ open , onClose}) => {
     const [quantity,setQuantity] = useState("");
     const [specialinstructions,setSpecialinstructions] = useState("");
     const [deliverydate,setDeliverydate] = useState("");
-    const [deliveytime,setDeliverytime] = useState("");
+    const [deliverytime,setDeliverytime] = useState("");
     const [deliveryaddress,setDeliveryaddress] = useState("");
     const [customername,setCustomername] = useState("");
     const [customerphone,setCustomerphone] = useState("");

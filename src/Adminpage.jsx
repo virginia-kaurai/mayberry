@@ -228,6 +228,23 @@ const deleteCake = async (id) => {
     console.error("Error deleting cake:", error);
   }
 };
+  
+
+
+//button for deleting orders on the admin panel
+ const DeleteOrders = async(id) => {
+  try{
+    await axios.delete(`http://127.0.0.1:8000/api2/orders/delete/${id}`);
+
+    setOrders(orders.filter((order) => order.id !== id));
+  }
+  //remove the deleted cake from the screen
+
+  
+  catch (error) {
+    console.error("Error deleting cake:", error);
+  }
+ }
 
 
 const fetchCakes = async () => {
@@ -334,33 +351,34 @@ useEffect(() => {
 
               <table className="w-full text-left">
 
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-50 border-b border-black">
 
                   <tr className="text-sm text-gray-500">
 
                     <th className="px-6 py-4">
-                      Order
+                      Order Number
                     </th>
 
                     <th className="px-6 py-4">
-                      Customer
+                      Customer Name
                     </th>
 
                     <th className="px-6 py-4">
-                      Cake
+                      Cake name
                     </th>
 
                     <th className="px-6 py-4">
-                      Flavour
+                      Customer phone
+                    </th>
+                      <th className="px-6 py-4">
+                      Quantity
                     </th>
 
                     <th className="px-6 py-4">
                       Total
                     </th>
 
-                    <th className="px-6 py-4">
-                      Status
-                    </th>
+                   
 
                   </tr>
 
@@ -372,33 +390,32 @@ useEffect(() => {
                   {/* Example order */}
             <tbody>
   {orders.map((order) => (
-    <tr key={order.id} className="border-t">
+    <tr key={order.id} className="">
 
       <td className="px-6 py-4 font-medium">
-        {order.order_number}
+        {order.ordernumber}
       </td>
 
       <td className="px-6 py-4">
-        {order.customer_name}
+        {order.customername}
       </td>
 
       <td className="px-6 py-4">
-        {order.cake_name}
+        {order.cakename}
       </td>
 
       <td className="px-6 py-4">
-        {order.customer_phone}
+        {order.customerphone}
+      </td>
+        <td className="px-6 py-4">
+        {order.quantity}
       </td>
 
       <td className="px-6 py-4">
-        KSh {order.total}
+         {order.total}
       </td>
 
-      <td className="px-6 py-4">
-        <span className="px-3 py-1 rounded-full text-xs bg-yellow-100 text-yellow-700">
-          {order.status}
-        </span>
-      </td>
+      <button onClick={() => deleteOrder(order.id)}>Delete order</button>
 
     </tr>
   ))}
