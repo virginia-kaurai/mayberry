@@ -10,6 +10,7 @@ from .serializers import UserSerializer
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from .authentications import CookieJWTAuthentication
 
 
 class RegisterView(APIView):
@@ -37,7 +38,7 @@ class LoginView(APIView):
 
         if user is not None:
             token = get_token_for_user(user)
-            response = Response({'message': 'logged in successfully', "user": user.id})
+            response = Response({'message': 'logged in successfully', "user": user.id}, status=status.HTTP_200_OK)
             response.set_cookie(
                 key='access_token',
                 value=token['access'],
@@ -65,34 +66,22 @@ class LogoutView(APIView):
         return response
     
 
-
-    class UserDetailView(APIView):
-     permission_classes = [IsAuthenticated]
+class UserDetailView(APIView):
+    authentication_classes = [CookieJWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         user = request.user
 
-        if user.role == "STUDENT":
-            customer_profile = user.customer_profile
-            data = {
-                "id": user.id,
-               
-                "first_name": user.first_name,
-                "last_name": user.last_name,
-                "email": user.email,
-                "role": user.role,
-               
-            }
-            return Response(data, status=status.HTTP_200_OK)
-        elif user.role == "LECTURER":
-            lecturer_profile = user.lecturer_profile
-            data = {
-                "id": user.id,
-                "login_id": user.login_id,
-                "first_name": user.first_name,
-                "last_name": user.last_name,
-                "email": user.email,
-                "role": user.role,
-                "department": lecturer_profile.department.name
-            }
-            return Response(data, status=status.HTTP_200_OK)
+        data = {
+            "id": user.id,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "email": user.email,
+            "role": user.role,
+        }
+
+        return Response(data, status=status.HTTP_200_OK)
+
+
+        

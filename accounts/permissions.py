@@ -4,13 +4,7 @@ from .models import User
 
 
     
-class IsLecturer(BasePermission):
 
-    def has_permission(self, request, view):
-        return (
-            request.user.is_authenticated
-            and request.user.role == "lecturer"
-        )
     
 class IsAdmin(BasePermission):
 
@@ -20,14 +14,14 @@ class IsAdmin(BasePermission):
             and request.user.role == "admin"
         )
     
-class IsLecturerOrAdmin(BasePermission):
+class IsCustomer(BasePermission):
 
     def has_permission(self, request, view):
 
         return (
             request.user.is_authenticated
             and request.user.role in [
-                "lecturer",
+                "customer",
                 "admin"
             ]
         )
