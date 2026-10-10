@@ -19,7 +19,9 @@ function Menu() {
   }, []);
 
   return (
-    <div className="bg-cream min-h-screen py-10 m-10">
+    <div 
+    id='menu'
+    className="bg-cream min-h-screen py-10 m-10">
 
       {/* Section title */}
       <div className="flex items-center justify-center gap-4 mb-10">

@@ -26,11 +26,22 @@ function Homepage() {
       </p>
 
      <div className="grid grid-cols-2 gap-4">
-  <button className="rounded-full bg-rose px-8 py-6 m-3 text-xs uppercase tracking-[0.3em] text-white">
+  <button 
+  type="button"
+              onClick={() =>
+                document
+                  .getElementById("menu")
+                  .scrollIntoView({
+                    behavior: "smooth"
+                  })
+              }
+  className="rounded-full bg-rose px-8 py-6 m-3 text-xs uppercase tracking-[0.3em] text-white">
     Explore the Menu
   </button>
 
-  <button className="rounded-full border border-chocolate/20 px-8 py-6 m-3 text-xs uppercase tracking-[0.3em] text-chocolate">
+  <button type="button"
+  onClick={()=>document.getElementById(consultation).scrollIntoView({behaviour:"smooth"})} 
+  className="rounded-full border border-chocolate/20 px-8 py-6 m-3 text-xs uppercase tracking-[0.3em] text-chocolate">
     Book a Consultation
   </button>
 </div>
