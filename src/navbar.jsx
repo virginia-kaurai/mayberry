@@ -1,6 +1,8 @@
 import LOGO from './assets/LOGO.jpeg'
 import { useState } from 'react'
 import { HiMenu, HiX } from "react-icons/hi";
+import Login from './pages/login.jsx'
+import { Link } from "react-router-dom";
 function Navbar(){
     
 
@@ -34,9 +36,12 @@ function Navbar(){
 
 
   <div class="hidden lg:flex justify-self-end items-center gap-4 ">
+    <Link to="/login">
     <button class="text-charcoal font-medium px-4 py-2 hover:text-rose transition-colors font-monserat">
       Login
     </button>
+
+    </Link>
     <button class=" text-charcoal font-monserat font-medium px-4 py-2 rounded-t-full rounded-b-full hover:border border-xl border-rose transition-colors">
       Sign Up
     </button>
@@ -94,7 +99,11 @@ function Navbar(){
           </ul>
 
           <div className="flex flex-col gap-3 mt-8">
-
+            <Link to="/login">
+            <button className="border border-rose  px-8  m-3 text-xs uppercase tracking-[0.3em] text-charcoal rounded-full py-2 bg-white">
+              Login
+            </button>
+            </Link>
             <button className="border border-rose  px-8  m-3 text-xs uppercase tracking-[0.3em] text-charcoal rounded-full py-2 bg-white">
               Login
             </button>

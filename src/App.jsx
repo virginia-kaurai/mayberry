@@ -9,6 +9,7 @@ import Contact from './contact.jsx';
 import Marquee from './Scroll.jsx';
 import Adminpage from './Adminpage.jsx';
 import Flavours from './flavours.jsx';
+import Login from './pages/login.jsx'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               </>
             }
           />
+          <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Adminpage />} />
         </Routes>
       </BrowserRouter>
