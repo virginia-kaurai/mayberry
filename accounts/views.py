@@ -29,6 +29,7 @@ def get_token_for_user(user):
         'access': str(refresh.access_token)
     })
     
+
 class LoginView(APIView):
     def post(self, request):
         email = request.data.get('email')
@@ -38,7 +39,16 @@ class LoginView(APIView):
 
         if user is not None:
             token = get_token_for_user(user)
-            response = Response({'message': 'logged in successfully', "user": user.id}, status=status.HTTP_200_OK)
+
+            response = Response(
+                {
+                    'message': 'logged in successfully',
+                    'user': user.id,
+                    'role': user.role,
+                },
+                status=status.HTTP_200_OK
+            )
+
             response.set_cookie(
                 key='access_token',
                 value=token['access'],
@@ -46,6 +56,7 @@ class LoginView(APIView):
                 samesite='None',
                 secure=True
             )
+
             response.set_cookie(
                 key='refresh_token',
                 value=token['refresh'],
@@ -53,10 +64,14 @@ class LoginView(APIView):
                 samesite='None',
                 secure=True
             )
+
             return response
-        else:
-            return Response({'error': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-        
+
+        return Response(
+            {'error': 'Invalid Credentials'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
+
 class LogoutView(APIView):
     def post(self, request):
         response = Response()
