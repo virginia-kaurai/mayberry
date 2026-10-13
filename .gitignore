@@ -1,0 +1,7 @@
+myenv/
+db.sqlite3
+data.json
+.env
+staticfiles/
+__pycache__/
+*.pyc
