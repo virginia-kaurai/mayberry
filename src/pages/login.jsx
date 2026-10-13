@@ -10,56 +10,62 @@ function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    setIsLoading(true);
-    setError("");
+ 
+  setIsLoading(true);
+  setError("");
 
+  try {
+  
 
-    try{
-      const response= await fetch("http://localhost:5000/api/admin/login", {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
+    const response = await fetch(
+      "https://mayberry.onrender.com/accounts/login/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email:email,
-          password:password,
+          email: email,
+          password: password,
         }),
-      });
-
-      const data= await response.json();
-
-      if(!response.ok){
-        setError(data.message || "Login failed");
-        return;
       }
-      if (data.role !== "admin") {
-        setError("You are not authorized to access this page.");
-        return;
-      }
-    
+    );
 
+
+    const data = await response.json();
+
+   console.log("Django response:", data);
+console.log("User role:", data.role);
+
+    if (!response.ok) {
+      setError(data.message || "Login failed");
+      return;
+    }
+
+  
+
+    if (data.role !== "admin") {
+      setError("You are not authorized to access this page.");
+      return;
+    }
 
     navigate("/admin");
-    } catch (error) {
-      setError("Could not connect to the server.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+    setError("Could not connect to the server.");
+  } finally {
+    setIsLoading(false);
+  }
+};
 
-
-
-  
-  
 
   return (
     <div className="min-h-screen bg-pink-400 flex items-center justify-center px-4">
-
       <div className="bg-white w-full max-w-md p-8 rounded-2xl shadow-2xl">
-
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-pink-400">
             Welcome Back!
@@ -71,7 +77,6 @@ function Login() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
               Email
@@ -102,19 +107,24 @@ function Login() {
             />
           </div>
 
+          {error && (
+            <p className="text-red-500 text-sm text-center" role="alert">
+              {error}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="w-full bg-pink-400 text-white py-3 rounded-lg font-semibold hover:bg-pink-500 transition duration-300 shadow-md"
+            disabled={isLoading}
+            className="w-full bg-pink-400 text-white py-3 rounded-lg font-semibold hover:bg-pink-500 transition duration-300 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Login
+            {isLoading ? "Logging in..." : "Login"}
           </button>
-
         </form>
 
         <p className="text-center text-gray-400 text-sm mt-6">
           Admin Portal
         </p>
-
       </div>
     </div>
   );

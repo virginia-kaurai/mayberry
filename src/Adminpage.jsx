@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Adminpage = () => {
+
+  const navigate = useNavigate();
 
   // ================= FLAVOUR STATE =================
 
@@ -21,7 +24,7 @@ const Adminpage = () => {
   const [cakeprice, setCakeprice] = useState("");
 
 
-
+ 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
 
@@ -32,7 +35,7 @@ const Adminpage = () => {
 
   const fetchOrders =() =>{
 
-    fetch("http://127.0.0.1:8000/api2/orderslist/")
+    fetch("https://mayberry.onrender.com/api2/orderslist/")
     .then(response => response.json())
     .then(data=>{console.log("api data:" ,data)
       setOrders(data);
@@ -53,7 +56,7 @@ const Adminpage = () => {
     try {
 
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/flavours/"
+        "https://mayberry.onrender.com/api/flavours/"
       );
 
       setFlavours(response.data);
@@ -98,7 +101,7 @@ const Adminpage = () => {
     try {
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/flavours/create/",
+        "https://mayberry.onrender.com/api/flavours/create/",
         {
           name: name,
           description: description
@@ -144,7 +147,7 @@ const Adminpage = () => {
 const deleteflavour = async (id) =>{
 
   try{
-    await axios.delete(`http://127.0.0.1:8000/api/flavour/delete/${id}/`
+    await axios.delete(`https://mayberry.onrender.com/api/flavour/delete/${id}/`
 
     );
 
@@ -180,7 +183,7 @@ const deleteflavour = async (id) =>{
 
     try {
         const response = await axios.post(
-            "http://127.0.0.1:8000/cakes/cakes/add/",
+            "https://mayberry.onrender.com/cakes/cakes/add/",
             formData
         );
 
@@ -218,7 +221,7 @@ setCakeimage(null);
 const deleteCake = async (id) => {
   try {
     await axios.delete(
-      `http://127.0.0.1:8000/cakes/cakes/delete/${id}`
+      `https://mayberry.onrender.com/cakes/cakes/delete/${id}`
     );
 
     // Remove the deleted cake from the screen
@@ -234,7 +237,7 @@ const deleteCake = async (id) => {
 //button for deleting orders on the admin panel
  const DeleteOrder = async(id) => {
   try{
-    await axios.delete(`http://127.0.0.1:8000/api2/orders/delete/${id}`);
+    await axios.delete(`https://mayberry.onrender.com/api2/orders/delete/${id}`);
 
     setOrders(orders.filter((order) => order.id !== id));
   }
@@ -250,7 +253,7 @@ const deleteCake = async (id) => {
 const fetchCakes = async () => {
   try {
     const response = await axios.get(
-      "http://127.0.0.1:8000/cakes/cakeslist/"
+      "https://mayberry.onrender.com/cakes/cakeslist/"
     );
 
     setCakes(response.data);
@@ -282,6 +285,28 @@ useEffect(() => {
           </p>
 
         </div>
+        
+<div className="mb-6">
+  <button
+    onClick={() => navigate("/")}
+    className="inline-flex items-center justify-center gap-2
+               bg-pink-600 text-white
+               px-5 py-3 rounded-lg
+               font-medium text-sm
+               shadow-md
+               hover:bg-gold
+               hover:shadow-lg
+               hover:-translate-y-0.5
+               active:translate-y-0
+               transition-all duration-300
+               focus:outline-none focus:ring-2
+               focus:ring-pink-200 focus:ring-offset-2 ml-6"
+  >
+    <span>←</span>
+    Back to Main Website
+  </button>
+</div>
+
 
       </header>
 
@@ -675,7 +700,7 @@ useEffect(() => {
             <div key={cake.id} className="p-4 ">
 
                 <img
-                    src={`http://127.0.0.1:8000${cake.image}`}
+                    src={`https://mayberry.onrender.com${cake.image}`}
                     alt={cake.name}
                     className="w-full h-64 object-cover rounded-lg"
                 />

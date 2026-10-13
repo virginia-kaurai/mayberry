@@ -11,7 +11,7 @@ const Flavours = () => {
     
 
     const fetchFlavours = () => {
-    fetch("http://127.0.0.1:8000/api/flavours/")
+    fetch("https://mayberry.onrender.com/api/flavours/")
         .then(response => response.json())
         .then(data => {console.log("API DATA:", data);
             setFlavours(data);

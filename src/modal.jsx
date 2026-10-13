@@ -20,7 +20,7 @@ const Modal = ({ open , onClose}) => {
  
 const handleSubmit  =(e)=>{
   e.preventDefault();
-  fetch("http://127.0.0.1:8000/api2/orderslist/",{
+  fetch("https://mayberry.onrender.com/api2/orderslist/",{
     method:"POST",
     headers:{
         'Content-Type':'application/json',

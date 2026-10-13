@@ -8,7 +8,7 @@ function Menu() {
 
   // Fetch cakes from Django
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/cakes/cakeslist/")
+    fetch("https://mayberry.onrender.com/cakes/cakeslist/")
       .then((response) => response.json())
       .then((data) => {
         setCakes(data);
@@ -55,7 +55,7 @@ function Menu() {
     <div key={cake.id}>
 
       <img
-        src={`http://127.0.0.1:8000${cake.image}`}
+        src={`https://mayberry.onrender.com${cake.image}`}
         alt={cake.name}
         className="w-full h-64 object-cover rounded-lg"
       />
