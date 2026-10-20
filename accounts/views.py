@@ -35,7 +35,10 @@ class LoginView(APIView):
         email = request.data.get('email')
         password = request.data.get('password')
 
-        user = authenticate(email=email, password=password)
+        user = authenticate(
+            request=request,
+            email=email, 
+            password=password)
 
         if user is not None:
             token = get_token_for_user(user)
