@@ -1,3 +1,5 @@
+import email
+
 from django.shortcuts import render
 
 from django.shortcuts import render
@@ -34,6 +36,11 @@ class LoginView(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
+
+
+
+        print("EMAIL RECEIVED:", repr(email))
+        print("PASSWORD RECEIVED:", bool(password))
 
         user = authenticate(
             request=request,
