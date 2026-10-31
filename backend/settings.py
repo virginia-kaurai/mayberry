@@ -157,9 +157,9 @@ CSRF_TRUSTED_ORIGINS = os.environ.get(
 
 
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.environ.get("fzpe3xte"),
-    "API_KEY": os.environ.get("837182866181883"),
-    "API_SECRET": os.environ.get("caR-9e7BOpQMP-gDLixnqMTCZas"),
+    "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
 }
 
 STORAGES = {
