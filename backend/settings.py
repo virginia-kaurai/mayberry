@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'products',
     'reviews',
@@ -46,7 +47,8 @@ INSTALLED_APPS = [
     'accounts',
     'cakes',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+     'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -151,3 +153,15 @@ CSRF_TRUSTED_ORIGINS = os.environ.get(
     "CSRF_TRUSTED_ORIGINS",
     "http://localhost:3000,http://localhost:5173",
 ).split(",")
+
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.environ.get("fzpe3xte"),
+    "API_KEY": os.environ.get("837182866181883"),
+    "API_SECRET": os.environ.get("caR-9e7BOpQMP-gDLixnqMTCZas"),
+}
+
+STORAGES = {
+    "default": {"BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"},
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
+}
