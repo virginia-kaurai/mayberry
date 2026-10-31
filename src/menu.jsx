@@ -2,13 +2,15 @@
 import { useEffect, useState } from "react";
 import Modal from "./modal";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Menu() {
   const [cakes, setCakes] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   // Fetch cakes from Django
   useEffect(() => {
-    fetch("https://mayberry.onrender.com/cakes/cakeslist/")
+    fetch(`${API_URL}/cakes/cakeslist/`)
       .then((response) => response.json())
       .then((data) => {
         setCakes(data);
@@ -55,7 +57,7 @@ function Menu() {
     <div key={cake.id}>
 
       <img
-        src={`https://mayberry.onrender.com${cake.image}`}
+        src={cake.image}
         alt={cake.name}
         className="w-full h-64 object-cover rounded-lg"
       />

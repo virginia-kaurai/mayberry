@@ -1,5 +1,7 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom"
+
+const API_URL = import.meta.env.VITE_API_URL;
  
 const Modal = ({ open , onClose}) => {
     
@@ -20,7 +22,7 @@ const Modal = ({ open , onClose}) => {
  
 const handleSubmit  =(e)=>{
   e.preventDefault();
-  fetch("https://mayberry.onrender.com/api2/orderslist/",{
+  fetch(`${API_URL}/api2/orderslist/`,{
     method:"POST",
     headers:{
         'Content-Type':'application/json',

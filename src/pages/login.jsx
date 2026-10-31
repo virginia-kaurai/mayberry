@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+
+
 function Login() {
   const navigate = useNavigate();
 
@@ -10,7 +13,7 @@ function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  
+const API_URL = import.meta.env.VITE_API_URL;
 const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -22,7 +25,7 @@ const handleSubmit = async (e) => {
   
 
     const response = await fetch(
-      "https://mayberry.onrender.com/accounts/login/",
+      `${API_URL}/accounts/login/`,
       {
         method: "POST",
         headers: {
@@ -42,7 +45,7 @@ const handleSubmit = async (e) => {
 console.log("User role:", data.role);
 
     if (!response.ok) {
-      setError(data.message || "Login failed");
+      setError(data.error || data.message || "Login failed");
       return;
     }
 

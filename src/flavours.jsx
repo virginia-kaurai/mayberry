@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+
+const API_URL = import.meta.env.VITE_API_URL;
 const Flavours = () => {
 
   const [flavours, setFlavours] = useState([]);
@@ -11,7 +13,7 @@ const Flavours = () => {
     
 
     const fetchFlavours = () => {
-    fetch("https://mayberry.onrender.com/api/flavours/")
+    fetch(`${API_URL}/api/flavours/`)
         .then(response => response.json())
         .then(data => {console.log("API DATA:", data);
             setFlavours(data);
